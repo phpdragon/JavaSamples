@@ -17,10 +17,12 @@ public class MessageService {
             public void run() {
                 while (true) {
                     long time = System.currentTimeMillis();
-//                    producer.sendHeightQueue("lowQueue message " + time);
-//                    producer.sendMiddleQueue("middleQueue message " + time);
-                    //                   producer.sendLowQueue("lowQueue message " + time);
-//
+                    producer.sendHeightQueue("lowQueue message " + time);
+                    producer.sendMiddleQueue("middleQueue message " + time);
+                    producer.sendLowQueue("lowQueue message " + time);
+
+                    producer.publishHeightTopic("heightTopic message " + time);
+                    producer.publishMiddleTopic("middleTopic message " + time);
                     producer.publishLowTopic("lowTopic message " + time);
 
                     try {

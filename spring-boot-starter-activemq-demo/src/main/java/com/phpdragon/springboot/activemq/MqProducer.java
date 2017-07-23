@@ -27,6 +27,12 @@ public class MqProducer {
     private Queue lowQueue;
 
     @Autowired
+    private Topic heightTopic;
+
+    @Autowired
+    private Topic middleTopic;
+
+    @Autowired
     private Topic lowTopic;
 
     public void sendHeightQueue(String msg) {
@@ -42,6 +48,16 @@ public class MqProducer {
     public void sendLowQueue(String msg) {
         LOGGER.debug("sendLowQueue :{}", msg);
         this.jmsMessagingTemplate.convertAndSend(this.lowQueue, msg);
+    }
+
+    public void publishHeightTopic(String msg) {
+        LOGGER.debug("sendLowTopic :{}", msg);
+        this.jmsMessagingTemplate.convertAndSend(this.heightTopic, msg);
+    }
+
+    public void publishMiddleTopic(String msg) {
+        LOGGER.debug("sendLowTopic :{}", msg);
+        this.jmsMessagingTemplate.convertAndSend(this.middleTopic, msg);
     }
 
     public void publishLowTopic(String msg) {
