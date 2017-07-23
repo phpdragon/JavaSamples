@@ -19,17 +19,17 @@ public class MqQueue {
     @Value("${spring.activemq.queue.low}")
     private String mqQueueLow;
 
-    @Bean("heightQueue")
+    @Bean
     public Queue heightQueue() {
         return new ActiveMQQueue(mqQueueHeight);
     }
 
-    @Bean("middleQueue")
+    @Bean
     public Queue middleQueue() {
         return new ActiveMQQueue(mqQueueMiddle);
     }
 
-    @Bean("lowQueue")
+    @Bean
     public Queue lowQueue() {
         return new ActiveMQQueue(mqQueueLow);
     }

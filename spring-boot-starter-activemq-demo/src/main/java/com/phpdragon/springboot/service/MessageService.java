@@ -1,6 +1,6 @@
 package com.phpdragon.springboot.service;
 
-import com.phpdragon.springboot.activemq.Producer;
+import com.phpdragon.springboot.activemq.MqProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.stereotype.Service;
@@ -9,17 +9,19 @@ import org.springframework.stereotype.Service;
 public class MessageService {
 
     @Autowired
-    private Producer producer;
+    private MqProducer producer;
 
-    public void run(ApplicationArguments args){
+    public void run(ApplicationArguments args) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true){
+                while (true) {
                     long time = System.currentTimeMillis();
-                    producer.sendHeightQueue("lowQueue message " + time);
-                    producer.sendMiddleQueue("middleQueue message " + time);
-                    producer.sendLowQueue("lowQueue message " + time);
+//                    producer.sendHeightQueue("lowQueue message " + time);
+//                    producer.sendMiddleQueue("middleQueue message " + time);
+                    //                   producer.sendLowQueue("lowQueue message " + time);
+//
+                    producer.publishLowTopic("lowTopic message " + time);
 
                     try {
                         Thread.sleep(1000);
