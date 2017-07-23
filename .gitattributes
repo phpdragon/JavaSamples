@@ -1,2 +1,2 @@
-*.sh linguist-language=Shell
 *.java linguist-language=Java
+*.sh linguist-language=Shell

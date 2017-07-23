@@ -1,0 +1,46 @@
+<project>
+   <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>1.5.4.RELEASE</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>com.phpdragon</groupId>
+   <version>1.0</version>
+   <artifactId>spring-boot-starter-demo</artifactId>
+   <packaging>pom</packaging>
+   <name>spring-boot-starter-demo</name>
+
+   <properties>
+      <java.version>1.8</java.version>
+
+      <slf4j.version>1.7.5</slf4j.version>
+   </properties>
+
+   <dependencies>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-logging</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+         </plugin>
+      </plugins>
+   </build>
+
+</project>
