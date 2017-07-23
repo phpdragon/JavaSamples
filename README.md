@@ -1,2 +1,2 @@
-# JavaSamples
-Java Samples 
+# JavaSample
+demo

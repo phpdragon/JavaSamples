@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <context:property-placeholder location="classpath*:/*.properties"
+                                  ignore-resource-not-found="true" ignore-unresolvable="true"/>
+
+    <context:component-scan base-package="com.phpdragon.jms"/>
+
+    <!--创建连接工厂 -->
+    <bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="${mq.brokerURL}"></property>
+        <property name="useAsyncSend" value="true"></property>
+    </bean>
+    <!-- 声明ActiveMQ消息目标,目标可以是一个队列，也可以是一个主题ActiveMQTopic -->
+    <bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="${mq.queue.name}"></constructor-arg>
+    </bean>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"></property>
+        <property name="defaultDestination" ref="destination"></property>
+        <property name="receiveTimeout" value="6000"></property>
+        <property name="messageConverter" ref="messageConverter"></property>
+    </bean>
+
+    <!-- 消息监听适配器 -->
+    <bean id="myMessageListenerAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="delegate" ref="mqConsumer"/>
+        <property name="messageConverter" ref="messageConverter"/>
+    </bean>
+
+    <!--限速版本-->
+    <!--<bean id="speedLimitQueue" class="com.phpdragon.jmsListenerContainer">-->
+    <!--<property name="connectionFactory" ref="connectionFactory"/>-->
+    <!--<property name="destination" ref="destination"/>-->
+    <!--&lt;!&ndash; 使用MessageListenerAdapter来作为消息监听器 &ndash;&gt;-->
+    <!--<property name="messageListener" ref="myMessageListenerAdapter"/>-->
+    <!--&lt;!&ndash;最小并发数是4，最大并发数为8&ndash;&gt;-->
+    <!--<property name="concurrency" value="4-8"/>-->
+    <!--<property name="receiveTimeout" value="30000"/>-->
+    <!--<property name="sessionTransacted" value="true"/>-->
+    <!--</bean>-->
+
+    <bean id="mqContainer" class="org.springframework.jms.listener.SimpleMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="destinationName" value="${mq.queue.name}"/>
+        <!--<property name="destination" value="consumerDestination"/>-->
+        <!-- 使用MessageListenerAdapter来作为消息监听器 -->
+        <property name="messageListener" ref="myMessageListenerAdapter"/>
+        <!--最小并发数是4，最大并发数为8-->
+        <property name="concurrency" value="4-8"/>
+        <property name="sessionTransacted" value="true"/>
+    </bean>
+
+</beans>
