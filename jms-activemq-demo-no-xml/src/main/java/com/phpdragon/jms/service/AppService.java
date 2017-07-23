@@ -20,12 +20,12 @@ public class AppService {
         consumerMsg();
     }
 
-    public void productMsg(){
+    public void productMsg() {
         Thread thread = new Thread(new SendTask(mqProducer));
         thread.start();
     }
 
-    public void consumerMsg(){
+    public void consumerMsg() {
         mqConsumer.startListener();
 //        Thread thread = new Thread(new SendTask(mqProducer));
 //        thread.start();
