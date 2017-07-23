@@ -8,9 +8,9 @@
 
    <groupId>com.phpdragon</groupId>
    <version>1.0</version>
-   <artifactId>springboot-starter-demo</artifactId>
+   <artifactId>springboot-starter-activemq-demo</artifactId>
    <packaging>pom</packaging>
-   <name>springboot-starter-demo</name>
+   <name>springboot-starter-activemq-demo</name>
 
    <properties>
       <java.version>1.8</java.version>
