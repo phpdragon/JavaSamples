@@ -25,3 +25,7 @@ hs_err_pid*
 /jms-activemq-demo-no-xml/logs
 /spring-boot-starter-demo/target
 /spring-boot-starter-demo/logs
+/jms-activemq-demo/.idea
+/jms-activemq-demo-no-xml/.idea
+/spring-boot-starter-activemq-demo/.idea
+/spring-boot-starter-demo/.idea
