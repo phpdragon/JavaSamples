@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <!--日志配置 -->
-    <property name="PROJECT_NAME" value="pushTaskServer"/>
-    <property name="LOG_BASE" value="/home/product/logs"/>
-    <property name="LOG_BACK_DIR" value="${LOG_BASE}/${PROJECT_NAME}_logs"/>
+    <property name="LOG_BACK_DIR" value="logs"/>
 
     <!-- logback 工程的日志配置 -->
     <appender name="INFO_ROLLING"

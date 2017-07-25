@@ -20,15 +20,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/jms-activemq-demo/target
-/jms-activemq-demo-no-xml/target
-/jms-activemq-demo-no-xml/logs
-/spring-boot-starter-demo/target
-/spring-boot-starter-demo/logs
-/jms-activemq-demo/.idea
-/jms-activemq-demo-no-xml/.idea
-/spring-boot-starter-activemq-demo/.idea
-/spring-boot-starter-demo/.idea
-/spring-boot-starter-activemq-demo/*.iml
-/spring-boot-starter-activemq-demo/logs
-/spring-boot-starter-activemq-demo/target
+*/.idea
+*/logs
+*/target
+*.iml

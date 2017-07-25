@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-public class Application {
+public class App {
 
-    public static final String DEFAULT_CONFIG_LOCATION = "/META-INF/spring-context.xml";
+    public static final String DEFAULT_CONFIG_LOCATION = "/spring-context.xml";
 
     @Autowired
     private MqSender mqSender;
@@ -25,7 +25,7 @@ public class Application {
      */
     public static void main(String[] args) throws IOException {
         ApplicationContext context = new ClassPathXmlApplicationContext(DEFAULT_CONFIG_LOCATION);
-        Application application = (Application) context.getBean("application");
+        App application = (App) context.getBean("application");
         application.run(args);
     }
 

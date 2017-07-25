@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.phpdragon</groupId>
-    <artifactId>java-sample</artifactId>
+    <artifactId>jms-activemq-demo</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
