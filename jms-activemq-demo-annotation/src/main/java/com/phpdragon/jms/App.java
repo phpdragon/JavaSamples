@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import java.io.IOException;
 
 @ComponentScan(basePackages = "com.phpdragon.jms")
-public class Application {
+public class App {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MsgPushLogic.class);
 
@@ -26,8 +26,8 @@ public class Application {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        ApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
-        Application application = (Application) context.getBean("application");
+        ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
+        App application = (App) context.getBean("app");
         application.run(args);
     }
 
@@ -35,7 +35,7 @@ public class Application {
         try {
             appService.run();
         } catch (Exception e) {
-            LOGGER.error("Application process exception, error:{}", e.getMessage(), e);
+            LOGGER.error("App process exception, error:{}", e.getMessage(), e);
             System.exit(0);
         }
     }
