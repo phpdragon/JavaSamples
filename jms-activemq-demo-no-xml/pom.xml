@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.phpdragon</groupId>
-    <artifactId>java-sample</artifactId>
+    <artifactId>jms-activemq-demo-annotation</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <name>jms-activemq-no-xml-demo</name>
-    <description>jms-activemq-no-xml-demo</description>
+    <name>jms-activemq-demo-annotation</name>
+    <description>jms-activemq-demo-annotation</description>
 
     <developers>
         <developer>

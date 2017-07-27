@@ -25,7 +25,7 @@ public class App {
      */
     public static void main(String[] args) throws IOException {
         ApplicationContext context = new ClassPathXmlApplicationContext(DEFAULT_CONFIG_LOCATION);
-        App application = (App) context.getBean("application");
+        App application = (App) context.getBean("app");
         application.run(args);
     }
 
