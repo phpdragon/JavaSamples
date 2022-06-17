@@ -33,7 +33,7 @@
         <plugin.checkstyle.version>2.17</plugin.checkstyle.version>
 
         <guava.version>22.0</guava.version>
-        <fastjson.vesrion>1.2.35</fastjson.vesrion>
+        <fastjson.vesrion>1.2.83</fastjson.vesrion>
         <activemq-pool.version>5.15.0</activemq-pool.version>
         <spring.version>4.3.10.RELEASE</spring.version>
         <logback-classic.version>1.2.3</logback-classic.version>
